@@ -454,10 +454,11 @@ function enviaPostAjax(data) {
 	}, 200);
 
 	setInterval(function(){
-		enviaPostAjax({X: Joy3.GetX(),
-					   Y: Joy3.GetY()
-					}),
-		200
+		enviaPostAjax({
+			X: Joy3.GetX(),
+			Y: Joy3.GetY(),
+			D: Joy3.GetDir()
+		}), 200
 	})
 		</script>
 	</body>
