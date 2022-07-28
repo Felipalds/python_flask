@@ -430,15 +430,35 @@ var joy3Direzione = document.getElementById("joy3Direzione");
 var joy3X = document.getElementById("joy3X");
 var joy3Y = document.getElementById("joy3Y");
 
+function enviaPostAjax(data) {
+	console.log(data)
+	fetch("/", {
+		method: "POST",
+		headers: {'Content-Type': 'application/json'}, 
+		body: JSON.stringify(data)
+		}).then(res => {
+		console.log("Request complete! response:", res);
+		});
+    }
+
 	setInterval(function(){ joy3IinputPosX.value=Joy3.GetPosX(); }, 200);
 	setInterval(function(){ joy3InputPosY.value=Joy3.GetPosY(); }, 200);
 	setInterval(function(){ joy3Direzione.value=Joy3.GetDir(); }, 200);
 	setInterval(function(){ 
 		joy3X.value=Joy3.GetX(); 
+		console.log(joy3X.value)
 	}, 200);
 	setInterval(function(){ 
 		joy3Y.value=Joy3.GetY(); 
+
 	}, 200);
+
+	setInterval(function(){
+		enviaPostAjax({X: Joy3.GetX(),
+					   Y: Joy3.GetY()
+					}),
+		200
+	})
 		</script>
 	</body>
 </html>
