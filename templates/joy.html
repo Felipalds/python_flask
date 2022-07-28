@@ -441,24 +441,26 @@ function enviaPostAjax(data) {
 		});
     }
 
-	setInterval(function(){ joy3IinputPosX.value=Joy3.GetPosX(); }, 200);
-	setInterval(function(){ joy3InputPosY.value=Joy3.GetPosY(); }, 200);
-	setInterval(function(){ joy3Direzione.value=Joy3.GetDir(); }, 200);
+	const time = 50
+
+	setInterval(function(){ joy3IinputPosX.value=Joy3.GetPosX(); }, time);
+	setInterval(function(){ joy3InputPosY.value=Joy3.GetPosY(); }, time);
+	setInterval(function(){ joy3Direzione.value=Joy3.GetDir(); }, time);
 	setInterval(function(){ 
 		joy3X.value=Joy3.GetX(); 
 		console.log(joy3X.value)
-	}, 200);
+	}, time);
 	setInterval(function(){ 
 		joy3Y.value=Joy3.GetY(); 
 
-	}, 200);
+	}, time);
 
 	setInterval(function(){
 		enviaPostAjax({
 			X: Joy3.GetX(),
 			Y: Joy3.GetY(),
 			D: Joy3.GetDir()
-		}), 200
+		}), time
 	})
 		</script>
 	</body>
